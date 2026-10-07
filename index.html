@@ -363,6 +363,59 @@ body:not(.unlocked) .gs-ov{display:none!important}
   .gs-ft .r{display:none}
 }
 
+/* ── 통계 번호 카드 ── */
+.sc-card{display:flex;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.sc-nc{flex:none;width:72px;background:#F6FAF8;border-right:1px solid var(--line);padding:22px 0;text-align:center}
+.sc-nc .no{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.sc-nc .lb{font-size:10.5px;color:#9AA69F;margin-top:2px}
+.sc-mc{flex:1;min-width:0;padding:20px 24px}
+.sc-tags{display:flex;gap:5px;flex-wrap:wrap}
+.sc-tg{font-size:11px;font-weight:600;border-radius:999px;padding:2px 10px}
+.sc-tg.k{background:var(--ink);color:#fff}
+.sc-tg.g{background:var(--accent-soft);color:#2E7360}
+.sc-ttl{font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin:9px 0 6px}
+.sc-lead{font-size:13.5px;line-height:1.8;color:#3A4842;margin:0 0 16px}
+.sc-lead b{font-weight:600;background:linear-gradient(transparent 58%,#DDF0E8 58%)}
+.sc-lead:empty{display:none}
+.sc-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:24px;margin-bottom:16px}
+.sc-cap{display:flex;align-items:baseline;gap:8px;font-size:12px;font-weight:600;color:#4A5A53;margin-bottom:8px}
+.sc-cap .s{font-size:11px;font-weight:500;color:#9AA69F}
+.sc-more{margin-top:2px;background:none;border:none;padding:0;font:inherit;font-size:12px;font-weight:600;color:var(--accent-dark);cursor:pointer}
+.sc-tb{width:100%;border-collapse:collapse;border-top:1.5px solid var(--ink);font-size:13px}
+.sc-tb th{width:116px;background:var(--accent-soft);color:#2E7360;font-size:11.5px;font-weight:600;text-align:left;vertical-align:middle;padding:10px 14px;border-bottom:1px solid #fff;line-height:1.5}
+.sc-tb td{padding:9px 16px;border-bottom:1px solid #EDF2EF;line-height:1.65}
+.sc-tb tr.key th{background:var(--seal);color:#fff}
+.sc-tb tr.key td{font-weight:600;background:#FFFBFA}
+.sc-tb tr.pick{cursor:pointer}
+.sc-tb tr.pick:hover td{background:#F6FAF8}
+.sc-tb tr.pick.on td{background:#EEF7F3;box-shadow:inset 3px 0 0 var(--accent-dark)}
+.sc-ty{display:flex;align-items:center;gap:12px}
+.sc-ty em{flex:none;width:50px;font-style:normal;font-weight:700}
+.sc-ty .bar{flex:1;max-width:300px;height:10px;border-radius:5px;background:#EFF4F2;overflow:hidden}
+.sc-ty .bar i{display:block;height:100%;border-radius:5px}
+.sc-ty .pct{flex:none;font-size:11.5px;font-weight:500;color:#9AA69F}
+.sc-memo{margin-top:14px;background:#F6FAF8;border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:13px 16px}
+.sc-memo:empty{display:none}
+.sc-memo .h{font-size:12px;font-weight:600;color:#4A5A53;margin-bottom:9px}
+.sc-memo .h em{font-style:normal;color:var(--seal)}
+.sc-chips{display:flex;flex-wrap:wrap;gap:6px}
+.sc-chips button{display:inline-flex;align-items:center;gap:5px;max-width:250px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 10px 2px 3px;font:inherit;font-size:12px;color:#3A4842;cursor:pointer}
+.sc-chips button:hover{border-color:var(--accent);color:var(--accent-dark)}
+.sc-chips button b{flex:none;min-width:22px;text-align:center;font-size:11px;font-weight:700;border-radius:999px;padding:1px 0}
+.sc-chips button b.a-eval{background:var(--seal-soft);color:var(--seal)}
+.sc-chips button b.a-rec{background:var(--accent-soft);color:var(--accent-dark)}
+.sc-chips button span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sc-listh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 6px;font-size:12.5px;font-weight:600;color:#4A5A53}
+@media (max-width:760px){.sc-two{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .sc-nc{width:50px;padding:16px 0}
+  .sc-nc .no{font-size:17px}
+  .sc-mc{padding:16px}
+  .sc-ttl{font-size:17px}
+  .sc-tb th{width:86px;padding:9px 10px}
+  .sc-tb td{padding:8px 12px}
+}
+
 /* ── 안건 상세 카드 ── */
 .ag-open{background:none;border:none;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;line-height:inherit}
 .ag-open:hover{color:var(--accent-dark);text-decoration:underline;text-decoration-color:#9FD2C1;text-underline-offset:3px}
@@ -862,45 +915,58 @@ svg text{font-family:var(--sans)}
       <div class="th-eb"><i></i>STATISTICS</div>
       <h2 class="th-h1">안건 통계</h2>
       <p class="th-sub">어떤 안건이 언제, 얼마나 되풀이되는지</p>
-      <p class="th-desc">대장에 누적된 안건을 학년도·영역별로 집계합니다. 위쪽은 요약 수치와 분포, 가운데는 반복 발생 패턴, 아래는 개별 사안 처리 사례집입니다. 카드 오른쪽 배지가 그 카드의 집계 범위를 나타냅니다.</p>
+      <p class="th-desc">대장에 누적된 안건을 학년도·영역별로 집계합니다. 각 카드 왼쪽 위 검은 태그가 그 카드의 집계 범위입니다. 01·02는 전체 기간, 03과 아래 요약 띠는 위에서 고른 학년도를 따릅니다.</p>
     </div>
+    <div class="th-meta" id="thMeta-stats"></div>
   </div>
   <div class="stat-bar">
     <div class="chips" id="statChips"></div>
   </div>
-  <div class="stat-wrap" id="statCards"></div>
 
-  <h4 class="sec-h">추이와 분포<span class="ln"></span></h4>
-  <div class="grid-2">
-    <div class="chart-box">
-      <h3>연도별 안건 발생<span class="scope all">전체 기간</span></h3>
-      <div class="sub">구분(학생평가 / 학교생활기록)별 누적 막대</div>
-      <div class="legend">
-        <span><i style="background:var(--seal)"></i>학생평가</span>
-        <span><i style="background:var(--accent)"></i>학교생활기록</span>
-        <span><i style="background:#9AA69F"></i>기타</span>
+  <div class="sc-card">
+    <div class="sc-nc"><div class="no">01</div><div class="lb">추이</div></div>
+    <div class="sc-mc">
+      <div class="sc-tags"><span class="sc-tg k">전체 기간</span></div>
+      <h3 class="sc-ttl">학년도별로 얼마나, 무엇을 다뤘나</h3>
+      <p class="sc-lead" id="scLead1"></p>
+      <div class="sc-two">
+        <div>
+          <div class="sc-cap">학년도별 안건<span class="s">막대를 누르면 그 학년도로</span></div>
+          <div class="legend">
+            <span><i style="background:var(--seal)"></i>학생평가</span>
+            <span><i style="background:var(--accent)"></i>학교생활기록</span>
+            <span><i style="background:#9AA69F"></i>기타</span>
+          </div>
+          <div id="chartYear"></div>
+        </div>
+        <div>
+          <div class="sc-cap">영역 상위<span class="s" id="scAreaScope">전체 기간</span></div>
+          <div id="chartArea"></div>
+        </div>
       </div>
-      <div id="chartYear"></div>
-    </div>
-    <div class="chart-box">
-      <h3>영역별 발생 빈도<span class="scope" id="scopeArea">전체 기간</span></h3>
-      <div class="sub">자주 발생하는 사안 순 · 상위 10개 · 복수 영역 안건은 각 영역에 모두 집계</div>
-      <div id="chartArea"></div>
+      <table class="sc-tb" id="scTb1"></table>
     </div>
   </div>
 
-  <h4 class="sec-h">반복 발생 패턴<span class="ln"></span></h4>
-  <div class="chart-box">
-    <h3>영역 × 학년도 히트맵<span class="scope all">전체 기간</span></h3>
-    <div class="sub">2회 이상 다뤄진 영역 — 색이 진할수록 그 학년도의 건수가 많음 · 여러 해에 걸쳐 진한 줄이 규정 명문화 검토 대상 · 칸을 클릭하면 해당 협의 이력</div>
-    <div id="heatmap"></div>
+  <div class="sc-card">
+    <div class="sc-nc"><div class="no">02</div><div class="lb">반복</div></div>
+    <div class="sc-mc">
+      <div class="sc-tags"><span class="sc-tg k">전체 기간</span></div>
+      <h3 class="sc-ttl">어떤 안건이 해마다 되풀이되나</h3>
+      <p class="sc-lead" id="scLead2"></p>
+      <div id="heatmap"></div>
+      <div class="sc-memo" id="scMemo2"></div>
+    </div>
   </div>
 
-  <h4 class="sec-h">⚑ 사안 처리 사례집<span class="ln"></span></h4>
-  <div class="chart-box">
-    <h3>정기시험·평가 개별 사안<span class="scope" id="scopeCase">전체 기간</span></h3>
-    <div class="sub">특정 학생·문항에 대한 개별 심의 기록 — 향후 유사 사안 처리의 판단 기준이 되는 사례집</div>
-    <div id="chartCases"></div>
+  <div class="sc-card">
+    <div class="sc-nc"><div class="no">03</div><div class="lb">사안</div></div>
+    <div class="sc-mc">
+      <div class="sc-tags"><span class="sc-tg k" id="scTagCase">전체 기간</span><span class="sc-tg g">학년도 선택 반영</span></div>
+      <h3 class="sc-ttl">정기시험·평가 사안은 어떻게 처리했나</h3>
+      <p class="sc-lead" id="scLead3"></p>
+      <div id="chartCases"></div>
+    </div>
   </div>
 </section>
 
@@ -7418,46 +7484,29 @@ let caseTab='전체';
 
 function renderCases(sel){
   const box=document.getElementById('chartCases');
+  const lead=document.getElementById('scLead3');
+  const tag=document.getElementById('scTagCase');
+  if(tag)tag.textContent=statYear==='전체'?'전체 기간':statYear+'학년도';
   const cases=sel.filter(rowIncident).map(r=>({r,type:caseTypeOf(r)}));
-  if(!cases.length){box.innerHTML='<p class="hist-empty">선택한 연도에 기록된 사안 처리 사례가 없습니다.</p>';return;}
-
+  if(!cases.length){
+    if(lead)lead.innerHTML='선택한 학년도에는 사안 처리 사례가 없습니다.';
+    box.innerHTML='';
+    return;
+  }
   const cnt={};CASE_TYPES.forEach(t=>cnt[t.key]=cases.filter(c=>c.type===t.key).length);
+  if(caseTab!=='전체'&&!CASE_TYPES.some(t=>t.key===caseTab))caseTab='전체';
 
-  /* ── 유형 탭 ── */
-  const tabs='<div class="ctype-tabs">'
-    +'<button class="ctab'+(caseTab==='전체'?' on':'')+'" data-t="전체">전체 <b>'+cases.length+'</b></button>'
-    +CASE_TYPES.map(t=>'<button class="ctab'+(caseTab===t.key?' on':'')+'" data-t="'+t.key+'" style="--c:'+t.color+'"><i></i>'+t.label+' <b>'+cnt[t.key]+'</b></button>').join('')
-    +'</div>';
-
-  /* ── 시각화: 연도 × 유형 누적 가로 막대 ── */
-  const byYear={};
-  cases.forEach(c=>{
-    const y=c.r.year||'미상';
-    if(!byYear[y]){byYear[y]={};CASE_TYPES.forEach(t=>byYear[y][t.key]=0);}
-    byYear[y][c.type]++;
-  });
-  const yrs=Object.keys(byYear).sort();
-  const sumY=y=>CASE_TYPES.reduce((s,t)=>s+byYear[y][t.key],0);
-  const maxN=Math.max(1,...yrs.map(sumY));
-  const W=560,rowH=30,gap=12,padL=52,padR=34;
-  const H=yrs.length*(rowH+gap)+8;
-  let bars='';
-  yrs.forEach((y,i)=>{
-    const yy=i*(rowH+gap)+4;
-    let x=padL;
-    bars+='<text x="'+(padL-8)+'" y="'+(yy+rowH/2+4)+'" text-anchor="end" font-size="12.5" font-weight="700" fill="#4A5751">'+y+'</text>';
-    CASE_TYPES.forEach(t=>{
-      const v=byYear[y][t.key];
-      if(!v)return;
-      const w=(W-padL-padR)*v/maxN;
-      bars+='<rect x="'+x+'" y="'+yy+'" width="'+w+'" height="'+rowH+'" fill="'+t.color+'" rx="4"><title>'+y+' '+t.label+' '+v+'건</title></rect>';
-      if(w>18)bars+='<text x="'+(x+w/2)+'" y="'+(yy+rowH/2+4)+'" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">'+v+'</text>';
-      x+=w;
-    });
-    const tot=sumY(y);
-    bars+='<text x="'+(x+6)+'" y="'+(yy+rowH/2+4)+'" font-size="12" font-weight="700" fill="#6E7D77">'+tot+'건</text>';
-  });
-  const viz='<div class="case-viz"><svg viewBox="0 0 '+W+' '+H+'" style="width:100%;max-width:'+W+'px;height:auto">'+bars+'</svg></div>';
+  /* ── 한 줄 요약 + 유형 표 (줄을 누르면 아래 목록이 그 유형으로) ── */
+  const order=CASE_TYPES.slice().sort((a,b)=>cnt[b.key]-cnt[a.key]);
+  const top=order[0];
+  const pc=n=>Math.round(n/cases.length*100);
+  if(lead)lead.innerHTML='<b>'+esc(top.label)+josaIGa(top.label)+' '+cnt[top.key]+'건으로 사안의 '+pc(cnt[top.key])+'%를 차지합니다.</b> 유형 줄을 누르면 아래 사례가 그 유형으로 좁혀집니다.';
+  const maxC=Math.max(1,cnt[top.key]);
+  const typeTable='<table class="sc-tb">'+order.map((t,i)=>
+    '<tr class="pick'+(i===0&&cnt[t.key]?' key':'')+(caseTab===t.key?' on':'')+'" data-t="'+t.key+'" title="이 유형만 보기">'
+    +'<th>'+esc(t.label)+'</th><td><div class="sc-ty"><em>'+cnt[t.key]+'건</em>'
+    +'<span class="bar"><i style="width:'+(cnt[t.key]/maxC*100).toFixed(1)+'%;background:'+t.color+'"></i></span>'
+    +'<span class="pct">'+pc(cnt[t.key])+'%</span></div></td></tr>').join('')+'</table>';
 
   /* ── 사례 목록 (탭 필터 적용, 회차별 그룹) ── */
   const shown=caseTab==='전체'?cases:cases.filter(c=>c.type===caseTab);
@@ -7498,8 +7547,13 @@ function renderCases(sel){
   const tools=shown.length?'<div class="case-tools"><span class="lbl">회차 줄을 누르면 사례가 펼쳐집니다</span>'
     +'<button class="btn-ghost" id="caseExpand">모두 펼치기</button></div>':'';
 
-  box.innerHTML=tabs+viz+tools+listHtml;
-  box.querySelectorAll('.ctab').forEach(b=>b.addEventListener('click',()=>{caseTab=b.dataset.t;renderStats();}));
+  const curLabel=caseTab==='전체'?'전체 유형':((CASE_TYPES.find(t=>t.key===caseTab)||{}).label||'');
+  const listHead='<div class="sc-listh"><span>사례 목록 · '+esc(curLabel)+' '+shown.length+'건</span>'
+    +(caseTab!=='전체'?'<button type="button" class="btn-ghost" id="caseAllTypes">전체 유형 보기</button>':'')+'</div>';
+  box.innerHTML=typeTable+listHead+tools+listHtml;
+  box.querySelectorAll('tr.pick').forEach(tr=>tr.addEventListener('click',()=>{caseTab=(caseTab===tr.dataset.t?'전체':tr.dataset.t);renderStats();}));
+  const cat=box.querySelector('#caseAllTypes');
+  if(cat)cat.addEventListener('click',()=>{caseTab='전체';renderStats();});
   box.querySelectorAll('.case-meet.acc>.case-head').forEach(h=>h.addEventListener('click',e=>{
     if(e.target.closest('.meet-link'))return;
     h.parentElement.classList.toggle('open');
@@ -7522,32 +7576,25 @@ function renderStats(){
   const all=ledger;
   const sel=statYear==='전체'?all:all.filter(r=>r.year===statYear);
   const scopeTxt=statYear==='전체'?'전체 기간':statYear+'학년도';
-  ['scopeArea','scopeCase'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el){el.textContent=scopeTxt;el.classList.toggle('all',statYear==='전체');}
-  });
+  const sa=document.getElementById('scAreaScope');if(sa)sa.textContent=scopeTxt;
   renderCases(sel);
 
-  /* 요약 카드 */
-  const meetCnt=new Set(sel.map(r=>r.meeting)).size;
+  /* 요약 띠 (머리 카드) */
+  const meetCnt=new Set(sel.map(r=>r.srcId||r.meeting)).size;
   const areaCount={};
   sel.forEach(r=>rowAreas(r).forEach(a=>{areaCount[a]=(areaCount[a]||0)+1}));
   const topArea=Object.entries(areaCount).sort((a,b)=>b[1]-a[1])[0];
-  const evalCnt=sel.filter(r=>r.gubun==='학생평가').length;
-  const recCnt=sel.filter(r=>r.gubun==='학교생활기록').length;
   const incCnt=sel.filter(rowIncident).length;
-  document.getElementById('statCards').innerHTML=`
-    <div class="stat-hero">
-      <div class="stat-card"><div class="k">누적 안건</div><div class="v">${sel.length}<small> 건</small></div></div>
-      <div class="stat-card"><div class="k">회의 수</div><div class="v">${meetCnt}<small> 회</small></div></div>
-      <div class="stat-card hl"><div class="k">⚑ 사안 처리 사례</div><div class="v" style="color:var(--seal)">${incCnt}<small> 건</small></div></div>
-    </div>
-    <div class="stat-sub">
-      <div class="stat-mini eval"><span class="nm">학생평가 안건</span><b>${evalCnt}</b></div>
-      <div class="stat-mini rec"><span class="nm">학교생활기록 안건</span><b>${recCnt}</b></div>
-      ${topArea?'<div class="stat-mini"><span class="nm">최다 영역 '+topArea[0]+'. '+esc(areaName(+topArea[0]))+'</span><b>'+topArea[1]+'</b></div>':''}
-    </div>
-  `;
+  const everyYear=statEveryYearAreas();
+  const mcell=(k,v,c)=>'<div><small>'+k+'</small><b'+(c?' class="'+c+'"':'')+'>'+v+'</b></div>';
+  const stm=document.getElementById('thMeta-stats');
+  if(stm)stm.innerHTML=
+    mcell(statYear==='전체'?'누적 안건':statYear+'학년도 안건',sel.length+'건')+
+    mcell('회의',meetCnt+'회','g')+
+    mcell('⚑ 사안 처리',incCnt+'건','e')+
+    (statYear==='전체'
+      ?mcell('매년 다룬 영역',everyYear.length+'개','e')
+      :mcell('최다 영역',topArea?topArea[0]+'번 · '+topArea[1]+'건':'—','e'));
 
   /* 차트 1: 연도별 누적 막대 (항상 전체 연도 기준) */
   const C={'학생평가':'var(--seal)','학교생활기록':'var(--accent)','기타':'#9AA69F'};
@@ -7564,7 +7611,7 @@ function renderStats(){
   const rough=maxY/4,mag=Math.pow(10,Math.floor(Math.log10(rough||1)));
   const tick=Math.max(1,[1,2,5,10].map(m=>m*mag).find(t=>t>=rough)||10*mag);
   const topY=Math.max(tick,Math.ceil(maxY/tick)*tick);
-  const W=Math.max(320,Math.min(520,yKeys.length*95)),H=252,padL=38,padR=14,padT=26,base=H-30;
+  const W=Math.max(320,Math.min(460,yKeys.length*76)),H=240,padL=38,padR=14,padT=26,base=H-30;
   const plotW=W-padL-padR,colW=plotW/Math.max(1,yKeys.length);
   const sc=v=>(base-padT)*v/topY;
   let grid='';
@@ -7595,16 +7642,36 @@ function renderStats(){
   });
   document.getElementById('chartYear').innerHTML=yKeys.length?
     `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px">${hl}${grid}<line x1="${padL}" y1="${base}" x2="${W-padR}" y2="${base}" stroke="var(--muted)"/>${bars}</svg>`
-    +'<p class="chart-hint">막대를 클릭하면 해당 학년도로 필터가 전환됩니다(다시 누르면 전체).</p>'
     :'<p class="empty-note">데이터가 없습니다.</p>';
   document.getElementById('chartYear').querySelectorAll('.yr-col').forEach(g=>g.addEventListener('click',()=>{
     statYear=(statYear===g.dataset.y?'전체':g.dataset.y);
     renderStats();
   }));
 
+  /* 카드 01: 한 줄 요약 + 표 (전체 기간) */
+  (function(){
+    const lead=document.getElementById('scLead1'),tb=document.getElementById('scTb1');
+    if(!lead||!tb)return;
+    if(!yKeys.length||!all.length){lead.innerHTML='';tb.innerHTML='';return;}
+    const meetOf=y=>new Set(all.filter(r=>r.year===y).map(r=>r.srcId||r.meeting)).size;
+    const maxYr=yKeys.slice().sort((a,b)=>totY(b)-totY(a)||a.localeCompare(b))[0];
+    const ev=all.filter(r=>r.gubun==='학생평가').length;
+    const rc=all.filter(r=>r.gubun==='학교생활기록').length;
+    const pc=n=>Math.round(n/all.length*100);
+    lead.innerHTML='<b>'+esc(maxYr)+'학년도가 '+totY(maxYr)+'건으로 가장 많았고, 학생평가 안건이 전체의 '+pc(ev)+'%를 차지합니다.</b>';
+    const recYs=yKeys.map(y=>byYear[y]['학교생활기록']);
+    const now=new Date(),sy=String(now.getMonth()>=2?now.getFullYear():now.getFullYear()-1);
+    const last=yKeys[yKeys.length-1];
+    tb.innerHTML=
+      '<tr><th>최다 학년도</th><td>'+esc(maxYr)+'학년도 · '+totY(maxYr)+'건 (회의 '+meetOf(maxYr)+'회)</td></tr>'+
+      '<tr><th>학교생활기록</th><td>'+rc+'건 · '+pc(rc)+'%'+(yKeys.length>1?' (학년도별 '+Math.min(...recYs)+'~'+Math.max(...recYs)+'건)':'')+'</td></tr>'+
+      '<tr class="key"><th>'+(last===sy?'올해':'최근 학년도')+'</th><td>'+esc(last)+'학년도 '+totY(last)+'건 · 회의 '+meetOf(last)+'회'+(last===sy?' (진행 중)':'')+'</td></tr>';
+  })();
+
   /* 차트 2: 영역별 빈도 (선택 연도 기준) */
-  const entries=Object.entries(areaCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
-  const noArea=sel.filter(r=>!rowAreas(r).length).length;
+  const allEntries=Object.entries(areaCount).sort((a,b)=>b[1]-a[1]);
+  const entries=allEntries.slice(0,statAreaAll?10:5);
+  const noArea=statAreaAll?sel.filter(r=>!rowAreas(r).length).length:0;
   const maxA=Math.max(1,...entries.map(e=>e[1]),noArea);
   const rowsHtml=entries.map(([no,cnt])=>{
     const cls=areaGrp(+no)==='학교생활기록'?'a-rec':'a-eval';
@@ -7617,10 +7684,46 @@ function renderStats(){
       <div class="abar-top"><span class="no">—</span><span class="nm">영역 미지정</span><span class="cnt">${noArea}건</span></div>
       <div class="abar-track"><div class="abar-fill" style="width:${(noArea/maxA*100).toFixed(1)}%"></div></div>
     </div>`:'');
-  document.getElementById('chartArea').innerHTML=entries.length||noArea?rowsHtml:'<p class="empty-note">데이터가 없습니다.</p>';
+  const moreBtn=allEntries.length>5?'<button type="button" class="sc-more" id="scAreaMore">'+(statAreaAll?'상위 5개만 보기':'상위 10개까지 보기')+'</button>':'';
+  document.getElementById('chartArea').innerHTML=entries.length||noArea?rowsHtml+moreBtn:'<p class="empty-note">데이터가 없습니다.</p>';
+  const mb=document.getElementById('scAreaMore');
+  if(mb)mb.addEventListener('click',()=>{statAreaAll=!statAreaAll;renderStats();});
 
   /* 반복 발생 패턴: 영역 × 학년도 히트맵 (전체 기간 기준) */
   renderHeatmap();
+  renderRepeatNote();
+}
+let statAreaAll=false;
+/* 모든 학년도에 빠짐없이 등장한 영역 */
+function statEveryYearAreas(){
+  const yrs=years();
+  if(yrs.length<2)return [];
+  const ay={};
+  ledger.forEach(r=>rowAreas(r).forEach(a=>{(ay[a]=ay[a]||new Set()).add(r.year);}));
+  return Object.keys(ay).map(Number).filter(a=>ay[a].size===yrs.length).sort((a,b)=>a-b);
+}
+function josaIGa(w){
+  const c=String(w||'').trim().slice(-1).charCodeAt(0);
+  if(!(c>=0xAC00&&c<=0xD7A3))return '이';
+  return (c-0xAC00)%28?'이':'가';
+}
+/* 카드 02: 한 줄 요약 + 매년 다룬 영역 메모 */
+function renderRepeatNote(){
+  const lead=document.getElementById('scLead2'),memo=document.getElementById('scMemo2');
+  if(!lead||!memo)return;
+  const yrs=years();
+  const every=statEveryYearAreas();
+  if(every.length){
+    lead.innerHTML='<b>'+every.length+'개 영역은 '+yrs.length+'개 학년도 모두에서 빠짐없이 다뤄졌습니다.</b> 칸을 누르면 그 해의 협의가 열립니다.';
+    memo.innerHTML='<div class="h">매년 다룬 영역 <em>'+every.length+'개</em> — 연간 일정에 넣거나 규정 명문화를 검토할 대상</div>'
+      +'<div class="sc-chips">'+every.map(n=>'<button type="button" data-no="'+n+'" title="'+esc(areaName(n)||'')+'"><b class="'+(areaGrp(n)==='학교생활기록'?'a-rec':'a-eval')+'">'+n+'</b><span>'+esc(areaName(n)||'')+'</span></button>').join('')+'</div>';
+    memo.querySelectorAll('[data-no]').forEach(b=>b.addEventListener('click',()=>{const n=+b.dataset.no;openHist([n],areaName(n)||n+'번 영역');}));
+  }else{
+    const ay={};ledger.forEach(r=>rowAreas(r).forEach(a=>{(ay[a]=ay[a]||new Set()).add(r.year);}));
+    const best=Object.keys(ay).map(Number).sort((a,b)=>ay[b].size-ay[a].size||a-b)[0];
+    lead.innerHTML=best!=null?'<b>가장 꾸준히 다뤄진 영역은 '+best+'번 「'+esc(areaName(best)||'')+'」('+ay[best].size+'개 학년도)입니다.</b> 칸을 누르면 그 해의 협의가 열립니다.':'';
+    memo.innerHTML='';
+  }
 }
 let hmAll=false;
 function renderHeatmap(){
