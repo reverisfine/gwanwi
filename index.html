@@ -203,7 +203,7 @@ input.d-areas:focus,select.d-gubun:focus{outline:2px solid var(--accent);outline
 .ledger-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
 .ledger-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow-x:auto}
 table.ledger{width:100%;border-collapse:collapse;font-size:13.5px;min-width:900px}
-table.ledger th{background:none;color:var(--accent);border-top:2px solid var(--accent);border-bottom:2px solid var(--accent);padding:10px;font-size:12.5px;letter-spacing:.04em;white-space:nowrap;text-align:center;font-weight:700}
+table.ledger th{background:var(--accent-soft);color:#2E7360;border-bottom:1px solid #CFE6DC;padding:10px;font-size:12.5px;letter-spacing:.04em;white-space:nowrap;text-align:center;font-weight:700}
 table.ledger td{border-bottom:1px solid var(--line);padding:9px 10px;vertical-align:top}
 table.ledger tr:last-child td{border-bottom:none}
 table.ledger tr:hover td{background:#F6FAF8}
@@ -304,6 +304,64 @@ button.arc-agenda-chip:hover{border-color:var(--accent);color:var(--accent-dark)
 .arc-imgs{display:flex;flex-direction:column;gap:14px}
 .arc-imgs img{width:100%;max-width:760px;border:1px solid var(--line);border-radius:8px;display:block;background:#fff}
 .arc-imgs .pg-label{font-size:12px;color:var(--muted);margin-bottom:-8px}
+
+/* ── 탭 머리 카드 ── */
+.th-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:18px}
+.th-in{padding:24px 28px 20px}
+.th-eb{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.16em;color:var(--seal);margin-bottom:8px}
+.th-eb i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--seal)}
+.th-h1{font-family:var(--sans);font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--ink);margin:0 0 7px}
+.th-sub{font-size:14.5px;font-weight:500;color:#4A5A53;margin:0 0 5px}
+.th-desc{font-size:12.5px;color:var(--muted);line-height:1.75;margin:0;max-width:780px}
+.th-meta{display:flex;flex-wrap:wrap;background:#F6FAF8;border-top:1px solid var(--line)}
+.th-meta:empty{display:none}
+.th-meta div{flex:1;min-width:130px;padding:13px 16px 13px 28px;border-right:1px solid #E6EEEA}
+.th-meta div:last-child{border-right:none}
+.th-meta small{display:block;font-size:11px;color:#7F8E88;letter-spacing:.05em;margin-bottom:3px}
+.th-meta b{font-size:16px;font-weight:600;color:var(--ink)}
+.th-meta b.e{color:var(--seal)}
+.th-meta b.g{color:var(--accent-dark)}
+
+/* ── 전체 검색(Ctrl K) ── */
+nav .gs-btn{margin-left:auto;display:flex;align-items:center;gap:8px;min-width:240px;background:var(--card);border:1px solid #CFE6DC;border-radius:999px;padding:6px 8px 6px 14px;font-size:13px;font-weight:500;color:#8A9893;cursor:pointer}
+nav .gs-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+nav .gs-btn span{flex:1;text-align:left}
+nav .gs-btn svg{flex:none;color:var(--accent-dark)}
+nav .gs-btn kbd{flex:none;font-family:inherit;font-size:11px;font-weight:600;background:var(--accent-soft);color:var(--accent-dark);border-radius:999px;padding:1px 9px}
+.gs-ov{position:fixed;inset:0;z-index:1000;background:rgba(38,51,46,.42);display:flex;justify-content:center;align-items:flex-start;padding:10vh 16px 16px}
+body:not(.unlocked) .gs-ov{display:none!important}
+.gs-pal{width:100%;max-width:640px;max-height:78vh;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gs-in{flex:none;display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);color:var(--accent-dark)}
+#gsInput{flex:1;min-width:0;border:none;outline:none;background:none;font:inherit;font-size:16px;font-weight:500;color:var(--ink)}
+#gsInput::-webkit-search-cancel-button{display:none}
+.gs-esc{flex:none;background:none;border:1px solid var(--line);border-radius:6px;padding:1px 7px;font:inherit;font-size:11px;color:var(--muted);cursor:pointer}
+.gs-res{flex:1;overflow-y:auto;padding:4px 0 8px}
+.gs-gh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 16px 5px;font-size:11.5px;font-weight:600;color:#7F8E88;letter-spacing:.05em}
+.gs-gh button{background:none;border:none;padding:0;font:inherit;font-size:11.5px;font-weight:600;color:var(--accent-dark);cursor:pointer}
+.gs-it{display:flex;align-items:baseline;gap:12px;width:100%;background:none;border:none;text-align:left;font:inherit;color:inherit;padding:8px 16px;font-size:13px;line-height:1.55;cursor:pointer}
+.gs-it.sel{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent-dark)}
+.gs-it .k{flex:none;width:96px;font-size:11.5px;color:#7F8E88}
+.gs-it .t{flex:1;min-width:0}
+.gs-it .n{display:block;font-size:11.5px;color:#8A9893;margin-top:2px}
+.gs-pal mark{background:#FBE0DA;color:#A63D2E;padding:0 1px;border-radius:2px}
+.gs-empty{padding:20px 18px;font-size:13px;color:var(--muted);line-height:1.8}
+.gs-empty .ex{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.gs-empty .ex button{background:#F4F8F6;border:1px solid var(--line);border-radius:999px;padding:3px 12px;font:inherit;font-size:12px;color:#4A5A53;cursor:pointer}
+.gs-empty .ex button:hover{border-color:var(--accent);color:var(--accent-dark)}
+.gs-ft{flex:none;display:flex;gap:14px;flex-wrap:wrap;padding:9px 16px;border-top:1px solid var(--line);background:#F7FAF8;font-size:11.5px;color:#7F8E88}
+.gs-ft b{font-weight:600;color:#4A5A53;border:1px solid var(--line);background:#fff;border-radius:5px;padding:0 6px;margin-right:4px}
+.gs-ft .r{margin-left:auto}
+.gs-flash,tr.gs-flash td{animation:gsFlash 1.8s ease-out}
+@keyframes gsFlash{0%,35%{background:#FBE3DE}100%{background:transparent}}
+@media (max-width:640px){
+  .th-in{padding:18px 18px 16px}
+  .th-h1{font-size:26px}
+  .th-meta div{flex:1 1 50%;min-width:0;padding:11px 14px;border-bottom:1px solid #E6EEEA}
+  nav .gs-btn{margin-left:0;flex:1 1 100%;min-width:0}
+  .gs-ov{padding:12px}
+  .gs-it .k{width:72px}
+  .gs-ft .r{display:none}
+}
 
 /* ── 잠금 화면 ── */
 #gate{position:fixed;inset:0;z-index:9999;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:20px}
@@ -631,13 +689,25 @@ svg text{font-family:var(--sans)}
   <button data-tab="tab-check">점검 사항</button>
   <button data-tab="tab-reg">본교 규정</button>
   <button data-tab="tab-qa">규정 질의</button>
+  <button class="gs-btn" id="gsBtn" type="button" title="안건·협의록·규정·심의 사항 전체 검색">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>안건·협의록·규정 검색</span><kbd id="gsKbd">Ctrl K</kbd>
+  </button>
 </nav>
 
 <main>
 
 <!-- ══════════ 1. 안건 대장 ══════════ -->
 <section id="tab-minutes" class="on">
-  <p class="desc">협의록을 텍스트로 붙여 넣거나 사진·스캔 이미지로 첨부하면 개최명·구분·영역·안건·논의 내용·논의 결과를 추출하여 아래 대장에 행으로 누적합니다. 논의 내용·결과 칸은 클릭하여 직접 수정할 수 있습니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>LEDGER · <span class="th-years"></span></div>
+      <h2 class="th-h1">안건 대장</h2>
+      <p class="th-sub" id="thSub-minutes">협의록에서 뽑아낸 안건을 시점 순서로</p>
+      <p class="th-desc">협의록을 텍스트로 붙여 넣거나 사진·스캔 이미지로 첨부하면 개최명·구분·영역·안건·논의 내용·논의 결과를 추출하여 아래 대장에 행으로 누적합니다. 논의 내용·결과 칸은 클릭하여 직접 수정할 수 있습니다.</p>
+    </div>
+    <div class="th-meta" id="thMeta-minutes"></div>
+  </div>
   <div class="paste-box">
     <label for="minutesInput">협의록 붙여넣기 <span style="font-weight:400">또는 이미지·PDF 첨부</span></label>
     <textarea id="minutesInput" placeholder="예) 2026학년도 제1차 학업성적관리위원회 협의록&#10;일시: 2026. 3. 5.(목) 15:30&#10;안건 1. 2026학년도 학업성적관리규정 개정(안) 심의&#10;...&#10;&#10;※ 협의록을 촬영·스캔한 이미지나 PDF 파일이 있다면 아래 「이미지·PDF 첨부」 버튼으로 올려도 됩니다."></textarea>
@@ -699,7 +769,15 @@ svg text{font-family:var(--sans)}
 
 <!-- ══════════ 1-2. 협의록 원본 ══════════ -->
 <section id="tab-archive">
-  <p class="desc">안건 추출에 사용한 협의록 원본 보관함입니다. 항목을 클릭하면 붙여 넣었던 텍스트와 첨부했던 이미지를 그대로 볼 수 있습니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>ARCHIVE · <span class="th-years"></span></div>
+      <h2 class="th-h1">협의록 원본</h2>
+      <p class="th-sub">회차별 협의록 원문을 그대로 보관합니다</p>
+      <p class="th-desc">안건 추출에 사용한 협의록 원본 보관함입니다. 항목을 클릭하면 붙여 넣었던 텍스트와 첨부했던 이미지를 그대로 볼 수 있습니다.</p>
+    </div>
+    <div class="th-meta" id="thMeta-archive"></div>
+  </div>
   <div class="pub-bar">
     <div class="t"><b>웹 게시용 파일</b>새로 추가한 협의록을 공개 사이트에도 남기려면 이 파일을 만들어 GitHub에 올리면 됩니다.</div>
     <button id="pubBtn">📥 웹 게시용 파일 만들기</button>
@@ -710,7 +788,14 @@ svg text{font-family:var(--sans)}
 
 <!-- ══════════ 2. 안건 통계 ══════════ -->
 <section id="tab-stats">
-  <p class="desc">대장에 누적된 안건을 학년도·영역별로 집계합니다. 위쪽은 요약 수치와 분포, 가운데는 반복 발생 패턴, 아래는 개별 사안 처리 사례집입니다. 카드 오른쪽 배지가 그 카드의 집계 범위를 나타냅니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>STATISTICS</div>
+      <h2 class="th-h1">안건 통계</h2>
+      <p class="th-sub">어떤 안건이 언제, 얼마나 되풀이되는지</p>
+      <p class="th-desc">대장에 누적된 안건을 학년도·영역별로 집계합니다. 위쪽은 요약 수치와 분포, 가운데는 반복 발생 패턴, 아래는 개별 사안 처리 사례집입니다. 카드 오른쪽 배지가 그 카드의 집계 범위를 나타냅니다.</p>
+    </div>
+  </div>
   <div class="stat-bar">
     <div class="chips" id="statChips"></div>
   </div>
@@ -752,14 +837,29 @@ svg text{font-family:var(--sans)}
 
 <!-- ══════════ 연간 보고 ══════════ -->
 <section id="tab-report">
-  <p class="desc">선택한 학년도의 위원회 운영 결과를 보고서 형식으로 요약합니다. 대장에 안건이 추가되면 자동으로 갱신되며, 차기 학년도 제1차 위원회 보고 자료로 활용할 수 있습니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>ANNUAL REPORT</div>
+      <h2 class="th-h1">연간 보고</h2>
+      <p class="th-sub">학년도별 위원회 운영 결과 요약</p>
+      <p class="th-desc">선택한 학년도의 위원회 운영 결과를 보고서 형식으로 요약합니다. 대장에 안건이 추가되면 자동으로 갱신되며, 차기 학년도 제1차 위원회 보고 자료로 활용할 수 있습니다.</p>
+    </div>
+  </div>
   <div class="chips" id="reportChips"></div>
   <div id="reportBody"></div>
 </section>
 
 <!-- ══════════ 3. 심의 사항 ══════════ -->
 <section id="tab-simu">
-  <p class="desc">학업성적관리위원회 심의 사항 34개 항목입니다(학생평가 22 · 학교생활기록 12). 대장의 영역 번호(복수 가능)는 이 목록을 기준으로 연결됩니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>DELIBERATION</div>
+      <h2 class="th-h1">심의 사항</h2>
+      <p class="th-sub">위원회가 심의하는 항목과 처리 시기</p>
+      <p class="th-desc">대장의 영역 번호(복수 가능)는 이 목록을 기준으로 연결됩니다. 시기 칩이나 검색으로 항목을 좁혀 볼 수 있습니다.</p>
+    </div>
+    <div class="th-meta" id="thMeta-simu"></div>
+  </div>
   <div class="chips" id="simuChips">
     <button class="chip on" data-time="전체">전체</button>
     <button class="chip" data-time="학기초">학기초</button>
@@ -774,7 +874,14 @@ svg text{font-family:var(--sans)}
 
 <!-- ══════════ 4. 점검 사항 ══════════ -->
 <section id="tab-check">
-  <p class="desc">학업성적관리 점검 사항 12개 항목입니다. 자체 점검이 끝난 항목은 체크하여 관리하세요. 체크 상태는 자동 저장됩니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>CHECKLIST</div>
+      <h2 class="th-h1">점검 사항</h2>
+      <p class="th-sub">학업성적관리 자체 점검 목록</p>
+      <p class="th-desc">학업성적관리 점검 사항 12개 항목입니다. 자체 점검이 끝난 항목은 체크하여 관리하세요. 체크 상태는 자동 저장됩니다.</p>
+    </div>
+  </div>
   <div class="progress-wrap">
     <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
     <div class="progress-label" id="progLabel">0 / 12 점검 완료</div>
@@ -790,7 +897,15 @@ svg text{font-family:var(--sans)}
 
 <!-- ══════════ 본교 규정 열람 ══════════ -->
 <section id="tab-reg">
-  <p class="desc">본교(한국디지털미디어고등학교) 2026학년도 학업성적관리규정 전문입니다. 왼쪽 목차에서 조문을 클릭하거나 키워드로 검색해 원문 근거를 바로 확인하세요. 심의 근거가 필요할 때는 「규정 질의」 탭에서 시행지침과 함께 물어볼 수 있습니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>REGULATION · 2026학년도</div>
+      <h2 class="th-h1">본교 규정</h2>
+      <p class="th-sub">한국디지털미디어고등학교 학업성적관리규정 전문</p>
+      <p class="th-desc">본교(한국디지털미디어고등학교) 2026학년도 학업성적관리규정 전문입니다. 왼쪽 목차에서 조문을 클릭하거나 키워드로 검색해 원문 근거를 바로 확인하세요. 심의 근거가 필요할 때는 「규정 질의」 탭에서 시행지침과 함께 물어볼 수 있습니다.</p>
+    </div>
+    <div class="th-meta" id="thMeta-reg"></div>
+  </div>
   <div class="reg-toolbar">
     <input id="regSearch" type="search" placeholder="키워드 검색 (예: 수정테이프, 결시, 인정점, 동점자) — Enter로 다음 결과">
     <button id="regPrev" title="이전 결과">◀ 이전</button>
@@ -806,7 +921,14 @@ svg text{font-family:var(--sans)}
 
 <!-- ══════════ 5. 규정 질의 ══════════ -->
 <section id="tab-qa">
-  <p class="desc">안건 심의 과정에서 궁금한 사항을 질문하세요. 본교 학업성적관리규정과 경기도교육청 시행지침·학업성적관리 이해하기의 핵심 내용을 근거로 답변합니다.</p>
+  <div class="th-card">
+    <div class="th-in">
+      <div class="th-eb"><i></i>Q&amp;A</div>
+      <h2 class="th-h1">규정 질의</h2>
+      <p class="th-sub">본교 규정과 시행지침에 근거한 답변</p>
+      <p class="th-desc">안건 심의 과정에서 궁금한 사항을 질문하세요. 본교 학업성적관리규정과 경기도교육청 시행지침·학업성적관리 이해하기의 핵심 내용을 근거로 답변합니다.</p>
+    </div>
+  </div>
   <div class="qa-wrap">
     <div class="qa-log" id="qaLog">
       <div class="qa-msg ai"><div class="who">답변</div><div class="bubble">안녕하세요. 본교 학업성적관리규정과 경기도 시행지침에 대해 질문해 주시면 근거 조항과 함께 안내해 드릴게요.</div></div>
@@ -827,6 +949,18 @@ svg text{font-family:var(--sans)}
 </section>
 
 </main>
+
+<div class="gs-ov" id="gsModal" style="display:none">
+  <div class="gs-pal" role="dialog" aria-label="전체 검색">
+    <div class="gs-in">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="gsInput" type="search" placeholder="안건·협의록·규정·심의 사항 검색" autocomplete="off" spellcheck="false">
+      <button class="gs-esc" type="button" id="gsEsc">Esc</button>
+    </div>
+    <div class="gs-res" id="gsRes"></div>
+    <div class="gs-ft"><span><b>↑↓</b>이동</span><span><b>Enter</b>열기</span><span><b>Esc</b>닫기</span><span class="r">띄어 쓴 낱말을 모두 포함한 결과</span></div>
+  </div>
+</div>
 
 <div class="modal-ov" id="pubModal" style="display:none">
   <div class="modal-card">
@@ -1012,7 +1146,7 @@ function regDoSearch(){
   regRender();
   regMatches=[];regCur=-1;
   if(q.length>=1){
-    const reSrc=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const reTest=new RegExp(reSrc);const re=new RegExp(reSrc,'g');
+    const reSrc=q.split(/\s+/).filter(Boolean).map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');const reTest=new RegExp(reSrc);const re=new RegExp(reSrc,'g');
     /* 텍스트 노드만 순회하며 mark 치환 */
     const walker=document.createTreeWalker(body,NodeFilter.SHOW_TEXT);
     const nodes=[];let n;
@@ -6140,15 +6274,244 @@ document.getElementById('pubBtn').addEventListener('click',openPublish);
 document.getElementById('pubClose').addEventListener('click',closePub);
 document.getElementById('pubModal').addEventListener('click',e=>{if(e.target.id==='pubModal')closePub();});
 
+/* ═══════════════ 탭 머리 카드 수치 ═══════════════ */
+function renderTabMeta(){
+  const yrs=[...new Set(ledger.map(r=>r.year).filter(Boolean))].sort();
+  const yrTxt=yrs.length?(yrs.length>1?yrs[0]+'–'+yrs[yrs.length-1]:yrs[0]):'';
+  document.querySelectorAll('.th-years').forEach(e=>{e.textContent=yrTxt;});
+  const cell=(k,v,c)=>'<div><small>'+k+'</small><b'+(c?' class="'+c+'"':'')+'>'+v+'</b></div>';
+  const put=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html;};
+
+  /* 안건 대장 */
+  const g={'학생평가':0,'학교생활기록':0,'기타':0};
+  ledger.forEach(r=>{g[(r.gubun==='학생평가'||r.gubun==='학교생활기록')?r.gubun:'기타']++;});
+  put('thMeta-minutes',
+    cell('학생평가',g['학생평가']+'건','e')+cell('학교생활기록',g['학교생활기록']+'건','g')+
+    cell('기타',g['기타']+'건')+cell('⚑ 사안 처리',ledger.filter(rowIncident).length+'건','e'));
+  const sub=document.getElementById('thSub-minutes');
+  if(sub)sub.textContent='협의록 '+minutesIndex.length+'회차에서 뽑아낸 안건을 시점 순서로';
+
+  /* 협의록 원본 */
+  if(minutesIndex.length){
+    const byYear=y=>minutesIndex.filter(m=>String(m.year)===String(y)).length;
+    const latest=minutesIndex.slice().sort((a,b)=>(+b.id||0)-(+a.id||0))[0];
+    const short=(latest.meeting||'').match(/제\s*\d+\s*차/);
+    const cy=yrs[yrs.length-1],py=yrs[yrs.length-2];
+    put('thMeta-archive',
+      (cy?cell(cy+'학년도 개최',byYear(cy)+'회','g'):'')+
+      (py?cell(py+'학년도 개최',byYear(py)+'회'):'')+
+      cell('최근 개최',esc((latest.year?latest.year+' ':'')+(short?short[0]:(latest.meeting||'—'))))+
+      cell('최근 개최일',fmtDate(latest.addedAt)||'—'));
+  }else put('thMeta-archive','');
+
+  /* 심의 사항 */
+  const used=new Set();ledger.forEach(r=>rowAreas(r).forEach(a=>used.add(+a)));
+  const nos=SIMU_ITEMS.map(s=>s.no);
+  put('thMeta-simu',
+    cell('전체 항목',SIMU_ITEMS.length+'개')+
+    cell('학생평가',SIMU_ITEMS.filter(s=>s.grp==='학생평가').length+'개','e')+
+    cell('학교생활기록',SIMU_ITEMS.filter(s=>s.grp==='학교생활기록').length+'개','g')+
+    cell('대장에서 다룬 항목',nos.filter(n=>used.has(n)).length+'개'));
+
+  /* 본교 규정 */
+  put('thMeta-reg',
+    cell('장',REG_DATA.filter(b=>b.t==='ch').length+'개')+
+    cell('조',REG_DATA.filter(b=>b.t==='art').length+'개','g')+
+    cell('표',REG_DATA.filter(b=>b.t==='table').length+'개')+
+    cell('계산식',REG_DATA.filter(b=>b.t==='note'&&/formula/.test(b.html||'')).length+'개','e'));
+}
+
+/* ═══════════════ 전체 검색 (Ctrl K) ═══════════════ */
+const GS={items:[],sel:0,t:null,pending:false};
+function gsTokens(q){return String(q||'').split(/\s+/).filter(Boolean);}
+function gsHas(hay,toks){hay=String(hay||'');return toks.every(t=>hay.includes(t));}
+function gsMark(text,toks){
+  let h=esc(text);
+  toks.map(t=>esc(t)).sort((a,b)=>b.length-a.length).forEach(t=>{if(t)h=h.split(t).join('\u0001'+t+'\u0002');});
+  return h.replace(/\u0001/g,'<mark>').replace(/\u0002/g,'</mark>');
+}
+function gsSnip(text,toks,len){
+  const s=String(text||'').replace(/\s+/g,' ').trim();
+  let i=-1;toks.forEach(t=>{const j=s.indexOf(t);if(j>=0&&(i<0||j<i))i=j;});
+  if(i<0)return s.slice(0,len)+(s.length>len?'…':'');
+  const st=Math.max(0,i-Math.floor(len/3));
+  return (st>0?'…':'')+s.slice(st,st+len)+(st+len<s.length?'…':'');
+}
+function gsShortMeet(m){const x=String(m||'').match(/제\s*\d+\s*차/);return x?x[0].replace(/\s+/g,''):String(m||'');}
+function gsSearch(q){
+  const toks=gsTokens(q),groups=[];
+  if(!toks.length)return groups;
+
+  /* 1. 안건 대장 */
+  const L=ledger.filter(r=>gsHas([r.agenda,r.discussion,r.result,r.meeting].join(' '),toks))
+    .sort((a,b)=>(+b.srcId||0)-(+a.srcId||0));
+  groups.push({key:'ledger',label:'안건 대장',unit:'건',total:L.length,all:()=>gsGoLedger(q,null),
+    items:L.slice(0,5).map(r=>{
+      let n='';
+      if(!gsHas(r.agenda,toks)){
+        const where=gsHas(r.discussion,toks)?'논의 내용':gsHas(r.result,toks)?'논의 결과':'논의 내용·결과';
+        const src=where==='논의 결과'?r.result:where==='논의 내용'?r.discussion:(r.discussion||'')+' '+(r.result||'');
+        n=where+'에서 일치 — '+gsMark(gsSnip(src,toks,70),toks);
+      }
+      return {k:(r.year||'')+' · '+gsShortMeet(r.meeting),t:gsMark(r.agenda||'(안건명 없음)',toks),n:n,go:()=>gsGoLedger(q,r.id)};
+    })});
+
+  /* 2. 협의록 원본 */
+  const A=[];
+  minutesIndex.forEach(m=>{
+    const sd=(typeof SEED_INDEX!=='undefined')?SEED_INDEX[String(m.id)]:null;
+    const rec=mem['gwanwi-minutes:'+m.id];
+    const text=(sd&&sd.text)||(rec&&rec.text)||'';
+    if(gsHas((m.meeting||'')+' '+text,toks))A.push({m:m,text:text});
+  });
+  A.sort((a,b)=>(+b.m.id||0)-(+a.m.id||0));
+  groups.push({key:'archive',label:'협의록 원본',unit:'회차',total:A.length,
+    items:A.slice(0,4).map(x=>({k:String(x.m.year||''),t:gsMark(x.m.meeting||'(개최명 미상)',toks),
+      n:x.text?gsMark(gsSnip(x.text,toks,70),toks):'',go:()=>gsGoArchive(x.m.id)}))});
+
+  /* 3. 본교 규정 */
+  const R=[];let art='',artId='';
+  REG_DATA.forEach(b=>{
+    if(b.t==='art'){art='제'+b.n+'조('+b.title+')';artId=b.id;}
+    const text=b.t==='art'?('제'+b.n+'조 '+b.title):((b.txt||'')+' '+(b.html||'').replace(/<[^>]+>/g,' ')).replace(/\s+/g,' ').trim();
+    if(text&&gsHas(text,toks))R.push({art:art,artId:artId,text:text});
+  });
+  groups.push({key:'reg',label:'본교 규정',unit:'건',total:R.length,all:()=>gsGoReg(q,null,''),
+    items:R.slice(0,4).map(x=>({k:x.art?x.art.replace(/\(.*$/,''):'규정',t:gsMark(gsSnip(x.text,toks,90),toks),
+      n:x.art?esc(x.art):'',go:()=>gsGoReg(q,x.artId,x.text)}))});
+
+  /* 4. 심의 사항 */
+  const S=SIMU_ITEMS.filter(s=>gsHas(s.txt+' '+(s.sub||''),toks));
+  groups.push({key:'simu',label:'심의 사항',unit:'건',total:S.length,all:()=>gsGoSimu(q,null),
+    items:S.slice(0,4).map(s=>({k:s.no+'번 · '+s.grp,t:gsMark(s.txt,toks),n:esc(s.time||''),go:()=>gsGoSimu(q,s.no)}))});
+
+  return groups.filter(x=>x.total);
+}
+function gsRender(){
+  GS.pending=false;
+  const box=document.getElementById('gsRes');
+  const q=document.getElementById('gsInput').value;
+  const toks=gsTokens(q);
+  GS.items=[];GS.sel=0;
+  if(!toks.length){
+    box.innerHTML='<div class="gs-empty">안건 대장 · 협의록 원본 · 본교 규정 · 심의 사항을 한 번에 찾습니다.<br>띄어 쓰면 낱말을 모두 포함한 결과만 보여 줍니다.'
+      +'<div class="ex">'+['문항 오류','결시 인정점','동점자','부정행위','이의신청'].map(x=>'<button type="button" data-ex="'+x+'">'+x+'</button>').join('')+'</div></div>';
+    box.querySelectorAll('[data-ex]').forEach(b=>b.addEventListener('click',()=>{
+      const inp=document.getElementById('gsInput');inp.value=b.dataset.ex;gsRender();inp.focus();
+    }));
+    return;
+  }
+  const groups=gsSearch(q);
+  if(!groups.length){box.innerHTML='<div class="gs-empty">「'+esc(q)+'」에 해당하는 결과가 없습니다. 낱말을 줄이거나 바꿔 보세요.</div>';return;}
+  const map={};let h='';
+  groups.forEach(gr=>{
+    map[gr.key]=gr;
+    h+='<div class="gs-gh"><span>'+gr.label+' · '+gr.total+gr.unit+'</span>'
+      +(gr.all&&gr.total>gr.items.length?'<button type="button" data-all="'+gr.key+'">모두 보기 →</button>':'')+'</div>';
+    gr.items.forEach(it=>{
+      const i=GS.items.length;GS.items.push(it);
+      h+='<button type="button" class="gs-it" data-i="'+i+'"><span class="k">'+esc(it.k)+'</span><span class="t">'+it.t
+        +(it.n?'<span class="n">'+it.n+'</span>':'')+'</span></button>';
+    });
+  });
+  box.innerHTML=h;
+  gsSel(0,false);
+  box.querySelectorAll('.gs-it').forEach(b=>{
+    b.addEventListener('click',()=>gsActivate(+b.dataset.i));
+    b.addEventListener('mousemove',()=>{if(+b.dataset.i!==GS.sel)gsSel(+b.dataset.i,false);});
+  });
+  box.querySelectorAll('[data-all]').forEach(b=>b.addEventListener('click',()=>{const gr=map[b.dataset.all];gsClose();setTimeout(gr.all,30);}));
+}
+function gsSel(i,scroll){
+  const its=document.querySelectorAll('#gsRes .gs-it');
+  if(!its.length)return;
+  GS.sel=(i+its.length)%its.length;
+  its.forEach((b,j)=>b.classList.toggle('sel',j===GS.sel));
+  if(scroll!==false&&its[GS.sel].scrollIntoView)its[GS.sel].scrollIntoView({block:'nearest'});
+}
+function gsActivate(i){const it=GS.items[i];if(!it)return;gsClose();setTimeout(it.go,30);}
+function gsOpen(){
+  if(!document.body.classList.contains('unlocked'))return;
+  document.getElementById('gsModal').style.display='flex';
+  const inp=document.getElementById('gsInput');
+  gsRender();
+  setTimeout(()=>{inp.focus();inp.select();},0);
+}
+function gsClose(){document.getElementById('gsModal').style.display='none';}
+function gsIsOpen(){return document.getElementById('gsModal').style.display==='flex';}
+function gsFlash(el){
+  if(!el)return;
+  el.classList.remove('gs-flash');void el.offsetWidth;el.classList.add('gs-flash');
+  setTimeout(()=>el.classList.remove('gs-flash'),1900);
+}
+/* 결과로 이동 */
+function gsGoLedger(q,id){
+  ledgerYear='전체';ledgerMeeting='전체';ledgerQ=String(q||'').trim();
+  const inp=document.getElementById('ledgerSearch');if(inp)inp.value=ledgerQ;
+  activateTab('tab-minutes');renderLedger();
+  let el=null;
+  if(id!=null)el=document.querySelector('#ledgerBody tr[data-id="'+String(id).replace(/"/g,'')+'"]');
+  if(!el)el=document.querySelector('.ledger-wrap');
+  if(el&&el.scrollIntoView)el.scrollIntoView({behavior:'smooth',block:id!=null?'center':'start'});
+  if(id!=null)gsFlash(el);
+}
+function gsGoArchive(id){activateTab('tab-archive');openArchive(id);}
+function gsGoReg(q,artId,text){
+  activateTab('tab-reg');
+  const inp=document.getElementById('regSearch');inp.value=String(q||'').trim();
+  regDoSearch();
+  if(!artId)return;
+  const BLK='.reg-li,.reg-p,.reg-cap,.reg-note,table,.reg-art';
+  const key=String(text||'').replace(/\s+/g,' ').slice(0,18);
+  const idx=key?regMatches.findIndex(mk=>{const b=mk.closest(BLK);return b&&b.textContent.replace(/\s+/g,' ').includes(key);}):-1;
+  if(idx>=0){regGo(idx);gsFlash(regMatches[idx].closest(BLK));}
+  else{const a=document.getElementById(artId);if(a&&a.scrollIntoView)a.scrollIntoView({behavior:'smooth',block:'start'});gsFlash(a);}
+}
+function gsGoSimu(q,no){
+  activateTab('tab-simu');
+  simuTime='전체';
+  document.querySelectorAll('#simuChips .chip').forEach(x=>x.classList.toggle('on',x.dataset.time==='전체'));
+  simuQ=String(q||'').trim();
+  const inp=document.getElementById('simuSearch');if(inp)inp.value=simuQ;
+  renderSimu();
+  if(no==null)return;
+  const it=[...document.querySelectorAll('#simuList .simu-item')].find(d=>{const n=d.querySelector('.simu-no');return n&&n.textContent.trim()===String(no);});
+  if(it&&it.scrollIntoView)it.scrollIntoView({behavior:'smooth',block:'center'});
+  gsFlash(it);
+}
+/* 이벤트 */
+(function initGlobalSearch(){
+  try{if(/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent||''))document.getElementById('gsKbd').textContent='⌘ K';}catch(e){}
+  document.getElementById('gsBtn').addEventListener('click',gsOpen);
+  document.getElementById('gsEsc').addEventListener('click',gsClose);
+  document.getElementById('gsModal').addEventListener('click',e=>{if(e.target.id==='gsModal')gsClose();});
+  const inp=document.getElementById('gsInput');
+  inp.addEventListener('input',()=>{GS.pending=true;clearTimeout(GS.t);GS.t=setTimeout(gsRender,90);});
+  inp.addEventListener('keydown',e=>{
+    if(e.isComposing||e.keyCode===229)return;   /* 한글 조합 중 Enter·방향키 무시 */
+    if(e.key==='ArrowDown'){e.preventDefault();gsSel(GS.sel+1);}
+    else if(e.key==='ArrowUp'){e.preventDefault();gsSel(GS.sel-1);}
+    else if(e.key==='Enter'){e.preventDefault();if(GS.pending){clearTimeout(GS.t);gsRender();}gsActivate(GS.sel);}
+    else if(e.key==='Escape'){e.preventDefault();gsClose();}
+  });
+  document.addEventListener('keydown',e=>{
+    if((e.ctrlKey||e.metaKey)&&!e.altKey&&!e.shiftKey&&(e.code==='KeyK'||e.key==='k'||e.key==='K')){
+      if(!document.body.classList.contains('unlocked'))return;
+      e.preventDefault();
+      gsIsOpen()?gsClose():gsOpen();
+    }else if(e.key==='Escape'&&gsIsOpen()){gsClose();}
+  });
+})();
+
 /* ═══════════════ 탭 ═══════════════ */
 function activateTab(id){
-  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x.dataset.tab===id));
+  document.querySelectorAll('nav button[data-tab]').forEach(x=>x.classList.toggle('on',x.dataset.tab===id));
   document.querySelectorAll('main section').forEach(x=>x.classList.toggle('on',x.id===id));
   if(id==='tab-stats')renderStats();
   if(id==='tab-archive')renderArchive();
   if(id==='tab-report')renderReport();
 }
-document.querySelectorAll('nav button').forEach(b=>{
+document.querySelectorAll('nav button[data-tab]').forEach(b=>{
   b.addEventListener('click',()=>activateTab(b.dataset.tab));
 });
 
@@ -6443,7 +6806,7 @@ function filteredRows(){
   return ledger.filter(r=>
     (ledgerYear==='전체'||r.year===ledgerYear)&&
     (ledgerMeeting==='전체'||String(r.srcId||r.meeting||'')===ledgerMeeting)&&
-    (!ledgerQ||(r.agenda+' '+(r.discussion||'')+' '+(r.result||'')+' '+(r.meeting||'')).includes(ledgerQ))
+    (!ledgerQ||(hay=>ledgerQ.split(/\s+/).filter(Boolean).every(t=>hay.includes(t)))(r.agenda+' '+(r.discussion||'')+' '+(r.result||'')+' '+(r.meeting||'')))
   );
 }
 function updateBannerStats(){
@@ -6457,6 +6820,7 @@ function updateBannerStats(){
 }
 function renderLedger(){
   updateBannerStats();
+  renderTabMeta();
   renderLedgerChips();
   const body=document.getElementById('ledgerBody');
   const rows=filteredRows();
@@ -7114,7 +7478,7 @@ function renderSimu(){
   wrap.innerHTML='';
   const rows=SIMU_ITEMS.filter(s=>
     (simuTime==='전체'||s.time===simuTime)&&
-    (!simuQ||(s.txt+(s.sub||'')).includes(simuQ))
+    (!simuQ||simuQ.split(/\s+/).filter(Boolean).every(t=>(s.txt+' '+(s.sub||'')).includes(t)))
   );
   rows.forEach(s=>{
     const d=document.createElement('div');
